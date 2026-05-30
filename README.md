@@ -1,88 +1,131 @@
-# PDF RAG Chatbot
+# RAG PDF Chatbot
 
-An AI-powered Retrieval-Augmented Generation (RAG) chatbot that enables users to upload PDF documents and ask natural language questions. The system retrieves relevant information from uploaded documents and generates context-aware answers using Google's Gemini Large Language Model.
+## Overview
 
-## 🚀 Key Features
+RAG PDF Chatbot is a Retrieval-Augmented Generation (RAG) application that allows users to upload PDF documents and ask questions based on the uploaded content.
 
-* PDF Upload and Processing
-* Automatic Text Extraction from PDF Documents
-* Intelligent Text Chunking using LangChain
-* Context-Based Information Retrieval
-* AI-Powered Question Answering with Gemini
-* Real-Time Query Processing
-* RESTful API Architecture
-* Scalable Backend Design
+The application extracts text from PDFs, splits it into chunks, retrieves relevant context, and generates answers using Google's Gemini AI model.
 
-## 🏗️ System Workflow
+---
 
-1. Upload a PDF document.
-2. Extract text content from the PDF.
-3. Split the document into manageable chunks.
-4. Store chunks for retrieval.
-5. Accept user questions.
-6. Retrieve the most relevant context from the document.
-7. Generate accurate answers using Gemini AI.
-8. Return context-aware responses to the user.
+## Features
 
-## 🛠️ Tech Stack
+* PDF Upload Support
+* PDF Text Extraction
+* Intelligent Text Chunking
+* Context-Based Retrieval
+* Gemini AI Integration
+* Question Answering from Uploaded PDFs
+* REST API Architecture
+* Fast Response Generation
+
+---
+
+## Tech Stack
 
 ### Backend
 
 * Node.js
 * Express.js
 
-### AI & NLP
+### AI
 
 * Google Gemini API
-* LangChain Text Splitters
 
 ### Document Processing
 
-* PDF-Parse
+* pdf-parse
+* LangChain Text Splitters
+
+### Other Tools
+
 * Multer
+* Dotenv
+* CORS
 
-### Storage
+---
 
-* In-Memory Context Store (Current Version)
+## System Architecture
 
-## 📌 API Endpoints
+PDF Upload
+→ Text Extraction
+→ Chunk Creation
+→ Context Retrieval
+→ Gemini AI
+→ Answer Generation
+
+---
+
+## API Endpoints
 
 ### Upload PDF
 
 POST `/api/upload`
 
-Upload PDF documents for processing and retrieval.
+Uploads and processes a PDF document.
 
-### Ask Questions
+### Ask Question
 
 POST `/api/ask`
 
-Ask questions related to uploaded PDF content and receive AI-generated answers.
+Request:
 
-## 🎯 Project Highlights
+```json
+{
+  "question": "What is LEFT JOIN?"
+}
+```
 
-* Built a complete Retrieval-Augmented Generation (RAG) pipeline from scratch.
-* Integrated Google Gemini for context-aware answer generation.
-* Implemented document chunking and retrieval mechanisms.
-* Designed scalable APIs for document ingestion and querying.
-* Demonstrates practical applications of LLMs, NLP, and document intelligence systems.
+Response:
 
-## 🔮 Future Enhancements
+```json
+{
+  "success": true,
+  "answer": "LEFT JOIN returns all records from the left table..."
+}
+```
 
-* ChromaDB Vector Database Integration
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+cd rag-pdf-chat/backend
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file:
+
+```env
+GEMINI_API_KEY=YOUR_API_KEY
+```
+
+### Run Project
+
+```bash
+npm run dev
+```
+
+---
+
+## Future Enhancements
+
+* ChromaDB Integration
 * Semantic Vector Search
-* Real Embeddings using Gemini Embedding Models
-* React Frontend Interface
+* Real Embeddings
 * Multi-PDF Support
 * User Authentication
 * Chat History Management
+* React Frontend
 * Cloud Deployment
 
-## 📷 Sample Flow
-
-PDF Upload → Text Extraction → Chunking → Context Retrieval → Gemini AI → Answer Generation
-
-## 👩‍💻 Author
-
-Anisha Katkade
-Full Stack Developer | MERN Stack | AI & RAG Enthusiast
